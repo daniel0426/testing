@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from 'actions'
 import CommentBox from 'components/CommentBox'
@@ -25,7 +25,7 @@ class App extends Component {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/post">Post A Comment</Link>
+          <Link to="post">Post A Comment</Link>
         </li>
         <li>{this.renderButton()}</li>
       </ul>
@@ -36,8 +36,10 @@ class App extends Component {
     return (
       <>
         {this.renderHeader()}
-        <Route path="/post" component={CommentBox} />
-        <Route path="/" exact component={CommentList} />
+        <Routes>
+          <Route path="post" element={<CommentBox />} />
+          <Route path="/" index element={<CommentList />} />
+        </Routes>
       </>
     )
   }
