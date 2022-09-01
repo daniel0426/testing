@@ -6,16 +6,6 @@ import requireAuth from 'components/requireAuth'
 class CommentBox extends Component {
   state = { comment: '' }
 
-  componentDidMount() {
-    this.shouldNavigateAway()
-  }
-
-  componentDidUpdate() {
-    this.shouldNavigateAway()
-  }
-
-  shouldNavigateAway() {}
-
   handleChange = (e) => {
     this.setState({ comment: e.target.value })
   }
